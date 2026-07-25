@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30일 꾸준이 챌린지 · 우리 크루</title>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  :root{
+    --navy:#11203A;--navy2:#1A2E4D;--navy3:#22375C;
+    --gold:#C2992F;--gold-b:#EBC871;
+    --ok:#3FBF8F;--warn:#E0A030;--sky:#6FA8D8;
+    --ink:#EAF0FA;--muted:#9DB0CC;--line:rgba(158,176,204,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    background:
+      radial-gradient(1100px 560px at 82% -8%, rgba(194,153,47,.13), transparent 60%),
+      radial-gradient(900px 500px at -8% 18%, rgba(63,191,143,.07), transparent 55%),
+      var(--navy);
+    color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;
+    padding:44px 20px 56px;
+  }
+  .wrap{max-width:1120px;margin:0 auto;animation:rise .6s ease both}
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.wrap{animation:none}}
+
+  header{margin-bottom:30px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
+    letter-spacing:.14em;color:var(--gold-b);text-transform:uppercase;margin-bottom:12px}
+  .eyebrow::before{content:"";width:24px;height:2px;background:var(--gold)}
+  h1{font-size:36px;font-weight:800;letter-spacing:-.02em}
+  h1 .accent{color:var(--gold-b)}
+  .sub-line{color:var(--muted);font-size:15px;margin-top:8px;max-width:660px}
+
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:34px}
+  .tile{background:var(--navy2);border:1px solid var(--line);border-radius:16px;padding:20px 20px 18px}
+  .tile .n{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums}
+  .tile .n small{font-size:15px;font-weight:600;color:var(--muted);margin-left:3px}
+  .tile .l{font-size:13px;color:var(--muted);margin-top:8px;font-weight:500}
+  .tile.a .n{color:var(--gold-b)} .tile.b .n{color:var(--gold-b)}
+  .tile.c .n{color:var(--ink)} .tile.d .n{color:var(--sky)}
+
+  .sec-head{display:flex;align-items:baseline;gap:12px;margin:34px 0 18px;flex-wrap:wrap}
+  .sec-head h2{font-size:21px;font-weight:800;letter-spacing:-.01em}
+  .sec-head .hint{font-size:13px;color:var(--muted)}
+
+  /* baseline */
+  .baseline{background:var(--navy2);border:1px solid var(--line);border-radius:18px;padding:24px 26px}
+  .brow{display:grid;grid-template-columns:96px 1fr 118px;align-items:center;gap:14px;margin-bottom:11px}
+  .brow:last-child{margin-bottom:0}
+  .brow .who{font-size:14px;font-weight:700;text-align:right;white-space:nowrap}
+  .brow .track{height:22px;background:rgba(17,32,58,.55);border-radius:6px;position:relative;overflow:visible}
+  .brow .fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--gold),var(--gold-b));
+    display:flex;align-items:center;justify-content:flex-end;padding-right:9px;
+    font-size:11.5px;font-weight:800;color:var(--navy);min-width:26px;position:relative;z-index:1}
+  .brow .fill.tiny{background:rgba(235,200,113,.4);color:var(--gold-b);justify-content:flex-start;padding-left:9px}
+  .brow .goal{position:absolute;top:-4px;bottom:-4px;left:43%;width:0;
+    border-left:2px dashed var(--gold-b);opacity:.75;z-index:2}
+  .brow .note{font-size:12px;color:var(--muted);white-space:nowrap}
+  .goal-legend{font-size:12.5px;color:var(--muted);margin-top:16px;
+    display:flex;align-items:center;gap:9px;border-top:1px dashed var(--line);padding-top:14px}
+  .goal-legend .mk{display:inline-block;width:22px;border-top:2px dashed var(--gold-b);opacity:.8}
+  .goal-legend b{color:var(--gold-b);font-weight:700}
+
+  /* cards */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .p{background:var(--navy2);border:1px solid var(--line);border-radius:16px;padding:20px 20px 18px}
+  .p .top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:3px}
+  .p .name{font-size:18px;font-weight:800;letter-spacing:-.01em}
+  .p .cat{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap;
+    background:rgba(111,168,216,.14);color:var(--sky);border:1px solid rgba(111,168,216,.28)}
+  .p .topic{font-size:13px;color:var(--muted);margin-bottom:14px;min-height:20px;word-break:keep-all}
+  .p .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin-bottom:12px}
+  .p .m{text-align:center}
+  .p .m .mv{font-size:14.5px;font-weight:800;line-height:1.2;word-break:keep-all}
+  .p .m .ml{font-size:10.5px;color:var(--muted);margin-top:3px}
+  .p .voice{font-size:12.5px;color:var(--muted);line-height:1.55;font-style:italic}
+  .p .voice::before{content:"“";color:var(--gold-b);font-weight:800;font-style:normal}
+  .p .voice::after{content:"”";color:var(--gold-b);font-weight:800;font-style:normal}
+  .ai{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:5px}
+  .ai.mid{background:rgba(111,168,216,.18);color:var(--sky)}
+  .ai.beg{background:rgba(158,176,204,.14);color:var(--muted)}
+
+  /* needs */
+  .needs{background:var(--navy2);border:1px solid var(--line);border-radius:18px;padding:22px 26px;margin-top:16px}
+  .needbar{display:flex;flex-direction:column;gap:10px}
+  .nb{display:grid;grid-template-columns:130px 1fr 40px;align-items:center;gap:12px}
+  .nb .nl{font-size:13px;font-weight:600}
+  .nb .nt{height:14px;background:rgba(17,32,58,.55);border-radius:5px;overflow:hidden}
+  .nb .nf{height:100%;background:linear-gradient(90deg,var(--ok),#7ad4b0);border-radius:5px}
+  .nb .nc{font-size:12.5px;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+  .needs .tie{font-size:12.5px;color:var(--muted);margin-top:16px;border-top:1px dashed var(--line);padding-top:13px;line-height:1.6}
+  .needs .tie b{color:var(--gold-b);font-weight:700}
+
+  footer{margin-top:40px;text-align:center;font-size:13px;color:var(--muted);
+    border-top:1px solid var(--line);padding-top:22px}
+
+  @media (max-width:900px){
+    .tiles{grid-template-columns:1fr 1fr}
+    .grid{grid-template-columns:1fr 1fr}
+    .brow{grid-template-columns:80px 1fr 92px}
+  }
+  @media (max-width:600px){
+    body{padding:26px 14px 40px}
+    h1{font-size:26px}
+    .tiles,.grid{grid-template-columns:1fr}
+    .nb{grid-template-columns:100px 1fr 34px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Our Crew · 우리 크루</div>
+    <h1>우리 <span class="accent">크루 11명</span>, 지금 여기서 출발합니다</h1>
+    <p class="sub-line">함께 30일을 달릴 크루예요. 지금 출발점을 남겨두고, 4주 뒤 얼마나 자랐는지 같이 확인해요.</p>
+  </header>
+
+  <div class="tiles">
+    <div class="tile a"><div class="n">11<small>명</small></div><div class="l">함께 달리는 크루</div></div>
+    <div class="tile b"><div class="n">주 3회<small>↑</small></div><div class="l">모두의 발행 목표 (필수)</div></div>
+    <div class="tile c"><div class="n">4<small>주</small></div><div class="l">챌린지 기간</div></div>
+    <div class="tile d"><div class="n">7<small>명</small></div><div class="l">여행·라이프 계정 (과반)</div></div>
+  </div>
+
+  <!-- 출발선 -->
+  <div class="sec-head">
+    <h2>출발선 — 지금 우리의 주간 발행량</h2>
+    <span class="hint">여기가 시작점이에요. 30일 뒤 다 같이 목표선을 넘겨봐요</span>
+  </div>
+  <div class="baseline">
+    <div class="brow"><div class="who">로버</div><div class="track"><div class="fill" style="width:100%">매일 (1일 1피드)</div><div class="goal"></div></div><div class="note">1일 1피드</div></div>
+    <div class="brow"><div class="who">도리몽실</div><div class="track"><div class="fill" style="width:57%">주 4개</div><div class="goal"></div></div><div class="note">조회 4천</div></div>
+    <div class="brow"><div class="who">빽가이드</div><div class="track"><div class="fill" style="width:43%">주 3개</div><div class="goal"></div></div><div class="note">시작 단계</div></div>
+    <div class="brow"><div class="who">쩡망이</div><div class="track"><div class="fill" style="width:36%">주 2~3개</div><div class="goal"></div></div><div class="note">최대 10만 경험</div></div>
+    <div class="brow"><div class="who">채리쉬</div><div class="track"><div class="fill" style="width:36%">주 2~3개</div><div class="goal"></div></div><div class="note">2~4천</div></div>
+    <div class="brow"><div class="who">모닝애프터</div><div class="track"><div class="fill" style="width:36%">주 2~3개</div><div class="goal"></div></div><div class="note">매장 계정</div></div>
+    <div class="brow"><div class="who">쿠리스탈</div><div class="track"><div class="fill" style="width:29%">주 2개</div><div class="goal"></div></div><div class="note">월 74만</div></div>
+    <div class="brow"><div class="who">오니기리</div><div class="track"><div class="fill" style="width:29%">주 2개</div><div class="goal"></div></div><div class="note">1,500</div></div>
+    <div class="brow"><div class="who">꾸렁이</div><div class="track"><div class="fill" style="width:14%">주 1개</div><div class="goal"></div></div><div class="note">2~3천</div></div>
+    <div class="brow"><div class="who">하티스트</div><div class="track"><div class="fill tiny" style="width:6%">시작 전</div><div class="goal"></div></div><div class="note">곧 시작!</div></div>
+    <div class="brow"><div class="who">장수정</div><div class="track"><div class="fill tiny" style="width:6%">시작 전</div><div class="goal"></div></div><div class="note">스레드 활동</div></div>
+    <div class="goal-legend"><span class="mk"></span> 점선은 <b>목표 주 3회</b> 위치예요. 지금은 저마다 출발점이 달라도, 4주 동안 이 선 위로 함께 올라갑니다.</div>
+  </div>
+
+  <!-- 크루 카드 -->
+  <div class="sec-head">
+    <h2>크루 한 사람 한 사람</h2>
+    <span class="hint">주제 · 현재 발행 · 도달 · AI · 30일 다짐</span>
+  </div>
+  <div class="grid">
+
+    <div class="p">
+      <div class="top"><div class="name">쩡망이</div><div class="cat">해외여행</div></div>
+      <div class="topic">여행 꿀팁·경비·코스</div>
+      <div class="metrics">
+        <div class="m"><div class="mv">주 2~3</div><div class="ml">발행</div></div>
+        <div class="m"><div class="mv">5천~10만</div><div class="ml">조회</div></div>
+        <div class="m"><div class="mv"><span class="ai beg">초급</span></div><div class="ml">AI</div></div>
+      </div>
+      <div class="voice">전략적으로 빠르게 계정을 키우고 수익화까지 이어가고 싶어요.</div>
+    </div>
+
+    <div class="p">
+      <div class="top"><div class="name">도리몽실</div><div class="cat">반려견</div></div>
+      <div class="topic">유기견 봉사·기부</div>
+      <div class="metrics">
+        <div class="m"><div class="mv">주 4</div><div class="ml">발행</div></div>
+        <div class="m"><div class="mv">4천·♡100</div><div class="ml">반응</div></div>
+        <div class="m"><div class="mv"><span class="ai beg">초급</span></div><div class="ml">AI</div></div>
+      </div>
+      <div class="voice">반려견·유기견 시점의 새로운 콘텐츠로 세계관을 확장하고 싶어요.</div>
+    </div>
+
+    <div class="p">
+      <div class="top"><div class="name">꾸렁이</div><div class="cat">여행</div></div>
+      <div class="topic">혼자여행 코스·공간 소개</div>
+      <div class="metrics">
+        <div class="m"><div class="mv">주 1</div><div class="ml">발행</div></div>
+        <div class="m"><div class="mv">2~3천</div><div class="ml">조회</div></div>
+        <div class="m"><div class="mv"><span class="ai beg">초급</span></div><div class="ml">AI</div></div>
+      </div>
+      <div class="voice">대본을 제대로 뽑아 꾸준히, 진성 팔로워를 늘리고 싶어요.</div>
+    </div>
+
+    <div class="p">
+      <div class="top"><div class="name">로버</div><div class="cat">사진·영상</div></div>
+      <div class="topic">아이폰 사진·색감·편집 꿀팁</div>
+      <div class="metrics">
+        <div class="m"><div class="mv">매일</div><div class="ml">발행</div></div>
+        <div class="m"><div class="mv">2~3천</div><div class="ml">조회</div></div>
+        <div class="m"><div class="mv"><span class="ai beg">초급</span></div><div class="ml">AI</div></div>
+      </div>
+      <div class="voice">감이 아닌 명확한 주제로 사진 계정을 만들어보고 싶어요.</div>
+    </div>
+
+    <div class="p">
+      <div class="top"><div class="name">쿠리스탈</div><div class="cat">여행·뷰티</div></div>
+      <div class="topic">여행 + 뷰티</div>
+      <div class="metrics">
+        <div class="m"><div class="mv">주 2</div><div class="ml">발행</div></div>
+        <div class="m"><div class="mv">월 74만</div><div class="ml">조회</div></div>
+        <div class="m"><div class="mv"><span class="ai mid">중급</span></div><div class="ml">AI</div></div>
+      </div>
+      <div class="voice">루틴을 지키고 피드백을 바로 반영해 결과로 확인받겠습니다.</div>
+    </div>
+
+    <div class="p">
+      <div class="top"><div class="name">채리쉬</div><div class="cat">여행</div></div>
+      <div class="topic">여행</div>
+      <div class="metrics">
+        <div class="m"><div class="mv">주 2~3</div><div class="ml">발행</div></div>
+        <div class="m"><div class="mv">2~4천</div><div class="ml">조회</div></div>
+        <div class="m"><div class="mv"><span class="ai beg">초급</span></div><div class="ml">AI</div></div>
+      </div>
+      <div class="voice">AI를 잘 활용해 주 3회 꾸준히 올리고 좋은 성과를 내고 싶어요.</div>
+    </div>
+
+    <div class="p">
+      <div class="top"><div class="name">오니기리</div><div class="cat">육아여행</div></div>
+      <div class="topic">아이와 여행</div>
+      <div class="metrics">
+        <div class="m"><div class="mv">주 2</div><div class="ml">발행</div></div>
+        <div class="m"><div class="mv">1,500</div><div class="ml">조회</div></div>
+        <div class="m"><div class="mv"><span class="ai beg">초급</span></div><div class="ml">AI</div></div>
+      </div>
+      <div class="voice">AI를 제대로 최적화해서 실제로 부딪혀보고 싶어요.</div>
+    </div>
+
+    <div class="p">
+      <div class="top"><div class="name">빽가이드</div><div class="cat">여행</div></div>
+      <div class="topic">여행</div>
+      <div class="metrics">
+        <div class="m"><div class="mv">주 3</div><div class="ml">발행</div></div>
+        <div class="m"><div class="mv">200~3천</div><div class="ml">조회</div></div>
+        <div class="m"><div class="mv"><span class="ai mid">중급</span></div><div class="ml">AI</div></div>
+      </div>
+      <div class="voice">나만의 색을 찾아 30일간 팔로워를 확 늘려보고 싶어요.</div>
+    </div>
+
+    <div class="p">
+      <div class="top"><div class="name">하티스트</div><div class="cat">살림·육아</div></div>
+      <div class="topic">살림·육아·일상</div>
+      <div class="metrics">
+        <div class="m"><div class="mv">시작 전</div><div class="ml">발행</div></div>
+        <div class="m"><div class="mv">~100</div><div class="ml">조회</div></div>
+        <div class="m"><div class="mv"><span class="ai mid">중급</span></div><div class="ml">AI</div></div>
+      </div>
+      <div class="voice">AI로 완성도 높은 콘텐츠를 주 3회 이상 꼭 올리겠습니다.</div>
+    </div>
+
+    <div class="p">
+      <div class="top"><div class="name">모닝애프터</div><div class="cat">자영업</div></div>
+      <div class="topic">키토김밥 매장 이야기</div>
+      <div class="metrics">
+        <div class="m"><div class="mv">주 2~3</div><div class="ml">발행</div></div>
+        <div class="m"><div class="mv">~1,500</div><div class="ml">조회</div></div>
+        <div class="m"><div class="mv"><span class="ai beg">초급</span></div><div class="ml">AI</div></div>
+      </div>
+      <div class="voice">매장·본사 브랜딩을 제대로 해서 나눔을 실천하는 사람이 되고 싶어요.</div>
+    </div>
+
+    <div class="p">
+      <div class="top"><div class="name">장수정</div><div class="cat">뷰티</div></div>
+      <div class="topic">뷰티</div>
+      <div class="metrics">
+        <div class="m"><div class="mv">시작 전</div><div class="ml">인스타</div></div>
+        <div class="m"><div class="mv">스레드 2.5만</div><div class="ml">월 조회</div></div>
+        <div class="m"><div class="mv"><span class="ai beg">초급</span></div><div class="ml">AI</div></div>
+      </div>
+      <div class="voice">나에게 맞는 개인화 설정으로 방향을 제대로 잡고 싶어요.</div>
+    </div>
+
+  </div>
+
+  <!-- 공통 니즈 -->
+  <div class="sec-head">
+    <h2>우리가 함께 배우고 싶은 것</h2>
+    <span class="hint">크루 11명이 신청서에 적어준 항목 (복수 응답)</span>
+  </div>
+  <div class="needs">
+    <div class="needbar">
+      <div class="nb"><div class="nl">콘텐츠 성과 분석</div><div class="nt"><div class="nf" style="width:100%"></div></div><div class="nc">8명</div></div>
+      <div class="nb"><div class="nl">카드뉴스 구성</div><div class="nt"><div class="nf" style="width:100%"></div></div><div class="nc">8명</div></div>
+      <div class="nb"><div class="nl">계정 분석</div><div class="nt"><div class="nf" style="width:100%"></div></div><div class="nc">8명</div></div>
+      <div class="nb"><div class="nl">콘텐츠 주제 기획</div><div class="nt"><div class="nf" style="width:88%"></div></div><div class="nc">7명</div></div>
+      <div class="nb"><div class="nl">릴스·쇼츠 대본</div><div class="nt"><div class="nf" style="width:88%"></div></div><div class="nc">7명</div></div>
+      <div class="nb"><div class="nl">나만의 프롬프트</div><div class="nt"><div class="nf" style="width:75%"></div></div><div class="nc">6명</div></div>
+    </div>
+    <div class="tie">우리 크루가 가장 궁금해하는 것들이에요. 라이브에서 이 흐름으로 함께 풀어갑니다 —
+      <b>주제 축 잡기 → 후킹·대본 → 성과 리뷰</b>. 다 같이 고민 중인 건 수익화·대본·조회수라, 4주 동안 하나씩 해결해가요.</div>
+  </div>
+
+  <footer>
+    30일 꾸준이 챌린지 &nbsp;|&nbsp; 함께 달리는 크루 11명 · 오늘부터 4주
+  </footer>
+
+</div>
+</body>
+</html>
