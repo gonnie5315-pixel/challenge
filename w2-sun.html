@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2주차 결산 현황</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+:root{--navy:#11203A;--navy2:#1A2E4D;--line:#2A3F63;--gold:#C2992F;--gold-b:#EBC871;
+  --txt:#E8EDF5;--dim:#8FA0BC;--off:#33456A;--ok:#3FBF8F;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Pretendard,-apple-system,sans-serif;background:var(--navy);color:var(--txt);
+  padding:48px 30px 60px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto}
+.head{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.eyebrow{font-size:13px;letter-spacing:.18em;color:var(--gold-b);font-weight:700;margin-bottom:12px}
+h1{font-size:40px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+h1 em{font-style:normal;color:var(--gold-b)}
+.done-badge{flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-width:132px;padding:16px 22px;border-radius:18px;background:linear-gradient(150deg,#173A30,#12242040);
+  border:1.5px solid var(--ok);box-shadow:0 0 0 4px rgba(63,191,143,.08)}
+.done-badge .b1{font-size:26px;font-weight:800;line-height:1;color:var(--ok);letter-spacing:-.02em}
+.done-badge .b2{font-size:12px;font-weight:700;color:var(--dim);margin-top:8px;letter-spacing:.03em}
+.sub{color:var(--dim);margin-top:16px;font-size:16px;line-height:1.6}
+.sub b{color:var(--txt)}
+.rule{height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:30px 0 32px}
+.stats{display:flex;gap:14px;margin-bottom:34px;flex-wrap:wrap}
+.stat{flex:1;min-width:140px;background:var(--navy2);border:1px solid var(--line);
+  border-radius:16px;padding:20px 22px}
+.stat .k{font-size:12px;color:var(--dim);letter-spacing:.06em;font-weight:600}
+.stat .v{font-size:34px;font-weight:800;margin-top:8px;letter-spacing:-.02em}
+.stat .v i{font-style:normal;font-size:16px;color:var(--dim);font-weight:600}
+.stat.ok .v{color:var(--ok)} .stat.gold .v{color:var(--gold-b)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:var(--navy2);border:1px solid var(--line);border-radius:16px;
+  padding:18px 20px 16px;border-left:3px solid var(--off)}
+.card.met{border-left-color:var(--ok);background:rgba(63,191,143,.06)}
+.card.go{border-left-color:var(--gold)}
+.ct{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+.nm{font-size:17px;font-weight:800;letter-spacing:-.01em}
+.cnt{font-size:20px;font-weight:800}
+.cnt i{font-style:normal;font-size:13px;color:var(--dim);font-weight:600}
+.card.met .cnt{color:var(--ok)} .card.go .cnt{color:var(--gold-b)}
+.pips{display:flex;align-items:center;gap:7px;margin-bottom:13px}
+.pip{flex:1;height:12px;border-radius:6px;background:var(--off)}
+.pip.on.met{background:var(--ok)}
+.pip.on.go{background:linear-gradient(90deg,var(--gold),var(--gold-b))}
+.plus{font-size:12px;font-weight:800;color:var(--ok);margin-left:2px}
+.msg{font-size:14px;color:var(--dim);font-weight:600}
+.msg b{color:var(--gold-b);font-size:15px}
+.card.met .msg{color:var(--ok)} .card.met .msg b{color:var(--ok)}
+.notice{margin-top:32px;background:var(--navy2);border:1px solid var(--line);
+  border-left:3px solid var(--gold);border-radius:14px;padding:24px 26px}
+.notice h3{font-size:15px;font-weight:800;color:var(--gold-b);margin-bottom:14px}
+.notice ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.notice li{font-size:14.5px;color:var(--dim);line-height:1.5}
+.notice li b{color:var(--txt)} .notice li b.g{color:var(--gold-b)}
+.notice li.ok{color:var(--ok)}
+.notice .cta{margin-top:16px;padding-top:15px;border-top:1px solid var(--line);
+  font-size:15px;font-weight:700;color:var(--gold-b);line-height:1.5}
+.notice .cta b{color:var(--txt)}
+.foot{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);
+  font-size:12px;color:var(--dim);line-height:1.7}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)} h1{font-size:32px}}
+@media(max-width:460px){.grid{grid-template-columns:1fr}}
+</style></head><body><div class="wrap">
+<div class="head">
+  <div>
+    <div class="eyebrow">30일 콘텐츠 습관 챌린지 · 2주차</div>
+    <h1>2주차 <em>결산 현황</em></h1>
+  </div>
+  <div class="done-badge"><span class="b1">MISSION</span><span class="b2">2주차 마감 완료 ✅</span></div>
+</div>
+<p class="sub"><b>주 3회 이상</b> 발행 시 <b>2주차 달성</b> · 부족분은 <b>3주차에 채우면 인정</b>됩니다.</p>
+<div class="rule"></div>
+<div class="stats">
+  <div class="stat"><div class="k">참여 인원</div><div class="v">12<i>명</i></div></div>
+  <div class="stat ok"><div class="k">2주차 달성</div><div class="v">11<i>명</i></div></div>
+  <div class="stat gold"><div class="k">3주차 만회 대상</div><div class="v">1<i>명</i></div></div>
+  <div class="stat"><div class="k">총 발행 콘텐츠</div><div class="v">45<i>개</i></div></div>
+</div>
+<div class="grid"><div class="card met">
+      <div class="ct"><span class="nm">로버</span>
+        <span class="cnt">7<i>/3</i></span></div>
+      <div class="pips"><span class="pip on met"></span><span class="pip on met"></span><span class="pip on met"></span><span class="plus">+4</span></div>
+      <div class="msg">목표 초과 · <b>7개</b> 발행 🔥</div>
+    </div><div class="card met">
+      <div class="ct"><span class="nm">도리몽실</span>
+        <span class="cnt">6<i>/3</i></span></div>
+      <div class="pips"><span class="pip on met"></span><span class="pip on met"></span><span class="pip on met"></span><span class="plus">+3</span></div>
+      <div class="msg">목표 초과 · <b>6개</b> 발행 🔥</div>
+    </div><div class="card met">
+      <div class="ct"><span class="nm">백지현</span>
+        <span class="cnt">5<i>/3</i></span></div>
+      <div class="pips"><span class="pip on met"></span><span class="pip on met"></span><span class="pip on met"></span><span class="plus">+2</span></div>
+      <div class="msg">목표 초과 · <b>5개</b> 발행 🔥</div>
+    </div><div class="card met">
+      <div class="ct"><span class="nm">오니기리</span>
+        <span class="cnt">4<i>/3</i></span></div>
+      <div class="pips"><span class="pip on met"></span><span class="pip on met"></span><span class="pip on met"></span><span class="plus">+1</span></div>
+      <div class="msg">목표 초과 · <b>4개</b> 발행 🔥</div>
+    </div><div class="card met">
+      <div class="ct"><span class="nm">쿠리스탈</span>
+        <span class="cnt">4<i>/3</i></span></div>
+      <div class="pips"><span class="pip on met"></span><span class="pip on met"></span><span class="pip on met"></span><span class="plus">+1</span></div>
+      <div class="msg">목표 초과 · <b>4개</b> 발행 🔥</div>
+    </div><div class="card met">
+      <div class="ct"><span class="nm">고니</span>
+        <span class="cnt">3<i>/3</i></span></div>
+      <div class="pips"><span class="pip on met"></span><span class="pip on met"></span><span class="pip on met"></span></div>
+      <div class="msg">1주차 달성! ✔</div>
+    </div><div class="card met">
+      <div class="ct"><span class="nm">꾸렁이</span>
+        <span class="cnt">3<i>/3</i></span></div>
+      <div class="pips"><span class="pip on met"></span><span class="pip on met"></span><span class="pip on met"></span></div>
+      <div class="msg">1주차 달성! ✔</div>
+    </div><div class="card met">
+      <div class="ct"><span class="nm">장수정</span>
+        <span class="cnt">3<i>/3</i></span></div>
+      <div class="pips"><span class="pip on met"></span><span class="pip on met"></span><span class="pip on met"></span></div>
+      <div class="msg">1주차 달성! ✔</div>
+    </div><div class="card met">
+      <div class="ct"><span class="nm">쩡망이</span>
+        <span class="cnt">3<i>/3</i></span></div>
+      <div class="pips"><span class="pip on met"></span><span class="pip on met"></span><span class="pip on met"></span></div>
+      <div class="msg">1주차 달성! ✔</div>
+    </div><div class="card met">
+      <div class="ct"><span class="nm">채리쉬</span>
+        <span class="cnt">3<i>/3</i></span></div>
+      <div class="pips"><span class="pip on met"></span><span class="pip on met"></span><span class="pip on met"></span></div>
+      <div class="msg">1주차 달성! ✔</div>
+    </div><div class="card met">
+      <div class="ct"><span class="nm">하티스트</span>
+        <span class="cnt">3<i>/3</i></span></div>
+      <div class="pips"><span class="pip on met"></span><span class="pip on met"></span><span class="pip on met"></span></div>
+      <div class="msg">1주차 달성! ✔</div>
+    </div><div class="card go">
+      <div class="ct"><span class="nm">모닝에프터</span>
+        <span class="cnt">1<i>/3</i></span></div>
+      <div class="pips"><span class="pip on go"></span><span class="pip  go"></span><span class="pip  go"></span></div>
+      <div class="msg"><b>2개</b> 부족 · 3주차에 채우면 인정</div>
+    </div></div>
+<div class="notice">
+  <h3>🔁 3주차 만회 안내 — 부족분만 채우면 2주차 달성 인정!</h3>
+  <ul><li><b>모닝에프터</b> · 1주차 <b class="g">2개</b>만 더 채우면 달성 인정! 💪</li></ul>
+  <p class="cta">조금만 더 하면 됩니다. 3주차엔 <b>전원 달성</b>으로 함께 가봅시다! 🔥</p>
+</div>
+<div class="foot">3칸 = 주 3회 기준 · 단톡 [인증] 메시지 자동 집계 · 같은 번째 중복은 1개로 계산 · 방장 제외</div>
+</div></body></html>
