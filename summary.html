@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>챌린지 종합 현황 (1~3주차)</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+:root{--navy:#11203A;--navy2:#1A2E4D;--line:#2A3F63;--gold:#C2992F;--gold-b:#EBC871;
+  --txt:#E8EDF5;--dim:#8FA0BC;--off:#33456A;--ok:#3FBF8F;--warn:#E0A030;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Pretendard,-apple-system,sans-serif;background:var(--navy);color:var(--txt);
+  padding:46px 26px 64px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto}
+.eyebrow{font-size:13px;letter-spacing:.18em;color:var(--gold-b);font-weight:700;margin-bottom:12px}
+h1{font-size:38px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+h1 em{font-style:normal;color:var(--gold-b)}
+.sub{color:var(--dim);margin-top:14px;font-size:15px;line-height:1.6}
+.sub b{color:var(--txt)}
+.rule{height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:28px 0 30px}
+.stats{display:flex;gap:14px;margin-bottom:30px;flex-wrap:wrap}
+.stat{flex:1;min-width:150px;background:var(--navy2);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.stat .k{font-size:12px;color:var(--dim);letter-spacing:.06em;font-weight:600}
+.stat .v{font-size:34px;font-weight:800;margin-top:8px;letter-spacing:-.02em}
+.stat .v i{font-style:normal;font-size:16px;color:var(--dim);font-weight:600}
+.stat.ok .v{color:var(--ok)} .stat.gold .v{color:var(--gold-b)}
+.twrap{overflow-x:auto;border-radius:16px;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;background:var(--navy2);min-width:760px}
+th{font-size:12px;color:var(--dim);text-align:center;padding:14px 10px;font-weight:600;
+  letter-spacing:.05em;border-bottom:1px solid var(--line);background:rgba(0,0,0,.16)}
+th.l,td.nm{text-align:left}
+td{padding:12px 10px;border-bottom:1px solid rgba(42,63,99,.5);text-align:center;vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr.donerow{background:rgba(63,191,143,.06)}
+.rank{color:var(--dim);font-weight:700;width:38px;font-size:13px}
+.nm{font-weight:800;font-size:15px;min-width:140px;white-space:nowrap}
+.mk{display:inline-block;font-size:10px;font-weight:700;color:var(--gold-b);
+  background:rgba(235,200,113,.14);padding:2px 7px;border-radius:20px;margin-left:6px}
+.wk{width:76px}
+.wk .wl{display:block;font-size:10px;color:var(--dim);font-weight:700;margin-bottom:4px}
+.wk .ws{display:inline-block;font-size:14px;font-weight:800;padding:4px 0;min-width:52px;border-radius:8px}
+.wk .ws i{font-style:normal;font-size:11px;font-weight:700;opacity:.85}
+.wk.met .ws{color:var(--ok);background:rgba(63,191,143,.14)}
+.wk.prog .ws{color:var(--gold-b);background:rgba(235,200,113,.14)}
+.wk.miss .ws{color:var(--warn);background:rgba(224,160,48,.12)}
+.wk.future .ws{color:var(--off);font-weight:700;font-size:12px}
+.tot{font-size:17px;font-weight:800;color:var(--gold-b)}
+.tot i{font-style:normal;font-size:11px;color:var(--dim);font-weight:600}
+.wm{font-size:16px;font-weight:800}
+.wm i{font-style:normal;font-size:11px;color:var(--dim);font-weight:600}
+.badge{display:inline-block;font-size:11px;font-weight:800;color:var(--ok);
+  background:rgba(63,191,143,.16);border:1px solid rgba(63,191,143,.4);padding:5px 11px;border-radius:20px;white-space:nowrap}
+.need{font-size:12px;color:var(--dim);font-weight:700;white-space:nowrap}
+.legend{margin-top:22px;display:flex;gap:20px;flex-wrap:wrap;font-size:12px;color:var(--dim)}
+.legend span{display:flex;align-items:center;gap:7px}
+.dot{width:10px;height:10px;border-radius:3px}
+.foot{margin-top:26px;padding-top:20px;border-top:1px solid var(--line);font-size:12px;color:var(--dim);line-height:1.7}
+@media(max-width:680px){.stats .stat{min-width:calc(50% - 7px)} h1{font-size:30px}}
+</style></head><body><div class="wrap">
+<div class="eyebrow">30일 콘텐츠 습관 챌린지 · 종합</div>
+<h1>1~3주차 <em>누적 달성 현황</em></h1>
+<p class="sub">완주 기준 — 4주 중 <b>3주 이상</b> 주간 목표(3개↑) 달성 · 현재 <b>3주차 진행 중</b><br>
+W1은 만회 포함 <b>전원 달성</b>, 벌써 <b>완주 확정 3명</b>이 나왔습니다! 🎉</p>
+<div class="rule"></div>
+<div class="stats">
+  <div class="stat"><div class="k">참여 인원</div><div class="v">12<i>명</i></div></div>
+  <div class="stat gold"><div class="k">누적 총 발행</div><div class="v">116<i>개</i></div></div>
+  <div class="stat ok"><div class="k">완주 확정</div><div class="v">3<i>명</i></div></div>
+  <div class="stat"><div class="k">진행 주차</div><div class="v">3<i>/4</i></div></div>
+</div>
+<div class="twrap"><table>
+<thead><tr><th></th><th class="l">참여자</th><th>1주차</th><th>2주차</th><th>3주차</th><th>4주차</th>
+<th>누적</th><th>달성주차</th><th>완주</th></tr></thead>
+<tbody><tr class="donerow">
+      <td class="rank">1</td>
+      <td class="nm">로버
+        </td>
+      <td class="wk met"><span class="wl">W1</span><span class="ws">✓ <i>7</i></span></td><td class="wk met"><span class="wl">W2</span><span class="ws">✓ <i>7</i></span></td><td class="wk met"><span class="wl">W3</span><span class="ws">✓ <i>3</i></span></td><td class="wk future"><span class="wl">W4</span><span class="ws">예정</span></td>
+      <td class="tot">17<i>개</i></td>
+      <td class="wm">3<i>/3</i></td>
+      <td class="done"><span class="badge">완주 확정</span></td>
+    </tr><tr class="donerow">
+      <td class="rank">2</td>
+      <td class="nm">도리몽실
+        </td>
+      <td class="wk met"><span class="wl">W1</span><span class="ws">✓ <i>7</i></span></td><td class="wk met"><span class="wl">W2</span><span class="ws">✓ <i>6</i></span></td><td class="wk met"><span class="wl">W3</span><span class="ws">✓ <i>3</i></span></td><td class="wk future"><span class="wl">W4</span><span class="ws">예정</span></td>
+      <td class="tot">16<i>개</i></td>
+      <td class="wm">3<i>/3</i></td>
+      <td class="done"><span class="badge">완주 확정</span></td>
+    </tr><tr class="donerow">
+      <td class="rank">3</td>
+      <td class="nm">백지현
+        </td>
+      <td class="wk met"><span class="wl">W1</span><span class="ws">✓ <i>4</i></span></td><td class="wk met"><span class="wl">W2</span><span class="ws">✓ <i>5</i></span></td><td class="wk met"><span class="wl">W3</span><span class="ws">✓ <i>3</i></span></td><td class="wk future"><span class="wl">W4</span><span class="ws">예정</span></td>
+      <td class="tot">12<i>개</i></td>
+      <td class="wm">3<i>/3</i></td>
+      <td class="done"><span class="badge">완주 확정</span></td>
+    </tr><tr class="">
+      <td class="rank">4</td>
+      <td class="nm">고니
+        </td>
+      <td class="wk met"><span class="wl">W1</span><span class="ws">✓ <i>11</i></span></td><td class="wk met"><span class="wl">W2</span><span class="ws">✓ <i>3</i></span></td><td class="wk prog"><span class="wl">W3</span><span class="ws">1/3</span></td><td class="wk future"><span class="wl">W4</span><span class="ws">예정</span></td>
+      <td class="tot">15<i>개</i></td>
+      <td class="wm">2<i>/3</i></td>
+      <td class="done"><span class="need">1주 남음</span></td>
+    </tr><tr class="">
+      <td class="rank">5</td>
+      <td class="nm">쩡망이
+        </td>
+      <td class="wk met"><span class="wl">W1</span><span class="ws">✓ <i>4</i></span></td><td class="wk met"><span class="wl">W2</span><span class="ws">✓ <i>3</i></span></td><td class="wk prog"><span class="wl">W3</span><span class="ws">2/3</span></td><td class="wk future"><span class="wl">W4</span><span class="ws">예정</span></td>
+      <td class="tot">9<i>개</i></td>
+      <td class="wm">2<i>/3</i></td>
+      <td class="done"><span class="need">1주 남음</span></td>
+    </tr><tr class="">
+      <td class="rank">6</td>
+      <td class="nm">쿠리스탈
+        <span class="mk">↺ 만회</span></td>
+      <td class="wk met"><span class="wl">W1</span><span class="ws">✓ <i>3</i></span></td><td class="wk met"><span class="wl">W2</span><span class="ws">✓ <i>4</i></span></td><td class="wk prog"><span class="wl">W3</span><span class="ws">2/3</span></td><td class="wk future"><span class="wl">W4</span><span class="ws">예정</span></td>
+      <td class="tot">9<i>개</i></td>
+      <td class="wm">2<i>/3</i></td>
+      <td class="done"><span class="need">1주 남음</span></td>
+    </tr><tr class="">
+      <td class="rank">7</td>
+      <td class="nm">오니기리
+        </td>
+      <td class="wk met"><span class="wl">W1</span><span class="ws">✓ <i>3</i></span></td><td class="wk met"><span class="wl">W2</span><span class="ws">✓ <i>4</i></span></td><td class="wk prog"><span class="wl">W3</span><span class="ws">1/3</span></td><td class="wk future"><span class="wl">W4</span><span class="ws">예정</span></td>
+      <td class="tot">8<i>개</i></td>
+      <td class="wm">2<i>/3</i></td>
+      <td class="done"><span class="need">1주 남음</span></td>
+    </tr><tr class="">
+      <td class="rank">8</td>
+      <td class="nm">채리쉬
+        <span class="mk">↺ 만회</span></td>
+      <td class="wk met"><span class="wl">W1</span><span class="ws">✓ <i>3</i></span></td><td class="wk met"><span class="wl">W2</span><span class="ws">✓ <i>3</i></span></td><td class="wk prog"><span class="wl">W3</span><span class="ws">1/3</span></td><td class="wk future"><span class="wl">W4</span><span class="ws">예정</span></td>
+      <td class="tot">7<i>개</i></td>
+      <td class="wm">2<i>/3</i></td>
+      <td class="done"><span class="need">1주 남음</span></td>
+    </tr><tr class="">
+      <td class="rank">9</td>
+      <td class="nm">꾸렁이
+        </td>
+      <td class="wk met"><span class="wl">W1</span><span class="ws">✓ <i>3</i></span></td><td class="wk met"><span class="wl">W2</span><span class="ws">✓ <i>3</i></span></td><td class="wk prog"><span class="wl">W3</span><span class="ws">0/3</span></td><td class="wk future"><span class="wl">W4</span><span class="ws">예정</span></td>
+      <td class="tot">6<i>개</i></td>
+      <td class="wm">2<i>/3</i></td>
+      <td class="done"><span class="need">1주 남음</span></td>
+    </tr><tr class="">
+      <td class="rank">10</td>
+      <td class="nm">장수정
+        <span class="mk">↺ 만회</span></td>
+      <td class="wk met"><span class="wl">W1</span><span class="ws">✓ <i>3</i></span></td><td class="wk met"><span class="wl">W2</span><span class="ws">✓ <i>3</i></span></td><td class="wk prog"><span class="wl">W3</span><span class="ws">0/3</span></td><td class="wk future"><span class="wl">W4</span><span class="ws">예정</span></td>
+      <td class="tot">6<i>개</i></td>
+      <td class="wm">2<i>/3</i></td>
+      <td class="done"><span class="need">1주 남음</span></td>
+    </tr><tr class="">
+      <td class="rank">11</td>
+      <td class="nm">하티스트
+        <span class="mk">↺ 만회</span></td>
+      <td class="wk met"><span class="wl">W1</span><span class="ws">✓ <i>3</i></span></td><td class="wk met"><span class="wl">W2</span><span class="ws">✓ <i>3</i></span></td><td class="wk prog"><span class="wl">W3</span><span class="ws">0/3</span></td><td class="wk future"><span class="wl">W4</span><span class="ws">예정</span></td>
+      <td class="tot">6<i>개</i></td>
+      <td class="wm">2<i>/3</i></td>
+      <td class="done"><span class="need">1주 남음</span></td>
+    </tr><tr class="">
+      <td class="rank">12</td>
+      <td class="nm">모닝에프터
+        </td>
+      <td class="wk met"><span class="wl">W1</span><span class="ws">✓ <i>4</i></span></td><td class="wk miss"><span class="wl">W2</span><span class="ws">1/3</span></td><td class="wk prog"><span class="wl">W3</span><span class="ws">0/3</span></td><td class="wk future"><span class="wl">W4</span><span class="ws">예정</span></td>
+      <td class="tot">5<i>개</i></td>
+      <td class="wm">1<i>/3</i></td>
+      <td class="done"><span class="need">2주 남음</span></td>
+    </tr></tbody>
+</table></div>
+<div class="legend">
+  <span><i class="dot" style="background:var(--ok)"></i>주간 달성(3개↑)</span>
+  <span><i class="dot" style="background:var(--gold-b)"></i>진행 중</span>
+  <span><i class="dot" style="background:var(--warn)"></i>미달</span>
+  <span><i class="dot" style="background:var(--off)"></i>예정</span>
+  <span>↺ 지난주 부족분 만회 인정</span>
+</div>
+<div class="foot">완주 기준 4주 중 3주 달성 · 각 셀의 숫자는 그 주 발행 개수 · '부족분' 인증은 만회로 1주차에 반영 · 방장 발행 수동 반영</div>
+</div></body></html>
